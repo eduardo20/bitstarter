@@ -1,11 +1,14 @@
-var express = require('express');
-//require('buffer').
-var app = express.createServer(express.logger());
+#!/usr/bin/env node
+buf = new Buffer(256);
+var fs = require('fs');
+fs.readFile('index.html', 'utf8', function (err, data) {
+// buf.write(data);
 
-app.get('/', function(request, response) {
-  response.send('Hello World2!')});
+     if (err) throw err;
 
-var port = process.env.PORT || 5000;
-app.listen(port, function() {
-  console.log("Listening on " + port);
+//len = buf.write(data,'\u00bd + \u00bc = \u00be', 0);
+//console.log(len + " bytes: " + buf.toString('utf8', 0, len));
+
+  console.log(data);
 });
+
